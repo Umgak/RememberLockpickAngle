@@ -21,7 +21,7 @@ static SKSEPapyrusInterface         * g_papyrus = NULL;
 extern "C"	{
 
 	bool SKSEPlugin_Query(const SKSEInterface * skse, PluginInfo * info)	{	// Called by SKSE to learn about this plugin and check that it's safe to load it
-		gLog.OpenRelative(CSIDL_MYDOCUMENTS, "\\My Games\\Skyrim Special Edition\\SKSE\\Plugin.log");
+		gLog.OpenRelative(CSIDL_MYDOCUMENTS, "\\My Games\\Skyrim Special Edition\\SKSE\\RememberLockpickAngle.log");
 		gLog.SetPrintLevel(IDebugLog::kLevel_Error);
 		gLog.SetLogLevel(IDebugLog::kLevel_DebugMessage);
 
@@ -44,7 +44,14 @@ extern "C"	{
 
 		// ### do not do anything else in this callback
 		// ### only fill out PluginInfo and return true/false
-
+		switch (skse->runtimeVersion) {
+		case RUNTIME_VERSION_1_5_73:
+		case RUNTIME_VERSION_1_5_80:
+			break;
+		default:
+			_MESSAGE("This plugin is not compatible with this version of game.");
+			return false;
+		}
 		// supported runtime version
 		return true;
 	}
