@@ -59,16 +59,16 @@ extern "C" {
 		if (skse->runtimeVersion >= RUNTIME_VERSION_1_6_317) {
 			initgLog();
 		}
-		if (!Globals::populateGlobals()) {
-			_FATALERROR("[FATAL ERROR] Failed to acquire one or more globals. This is fatal. Skipping remainder of init process.");
-			return false;
-		}
 		if (!RememberLockpickAngle::init()) {
 			_FATALERROR("[FATAL ERROR] Something went wrong when installing code hook. This is fatal. Skipping remainder of init process.");
 			return false;
 		}
-		SKSEMessagingInterface* messagingInterface = reinterpret_cast<SKSEMessagingInterface*>(skse->QueryInterface(kInterface_Messaging));
-		messagingInterface->RegisterListener(pluginHandle, "SKSE", RememberLockpickAngle::loadSettings);
+		if (Globals::populateGlobals()) {
+			SKSEMessagingInterface* messagingInterface = reinterpret_cast<SKSEMessagingInterface*>(skse->QueryInterface(kInterface_Messaging));
+			messagingInterface->RegisterListener(pluginHandle, "SKSE", RememberLockpickAngle::loadSettings);
+		} else {
+			_WARNING("[WARNING] One or more globals failed to populate. The perk requirement will not function. Falling back to default behavior.");
+		}
 		_MESSAGE("[MESSAGE] Remember Lockpick Angle loaded successfully.");
 		return true;
 	}
