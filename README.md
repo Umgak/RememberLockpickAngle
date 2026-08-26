@@ -38,6 +38,7 @@ requiredPerk = 5998
 Requires MSBuild to be added to your PATH.
 ```ps
 git clone git@github.com:Umgak/RememberLockpickAngle.git
+cd RememberLockpickAngle
 ./scripts/build.ps1
 ```
 The .dll will be output in `x64/Release/RememberLockpickAngle.dll`
