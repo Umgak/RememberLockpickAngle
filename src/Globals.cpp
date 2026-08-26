@@ -21,8 +21,8 @@ namespace Globals {
 	{
 		g_thePlayer = reinterpret_cast<Actor**>(SayuLib::Memory::aobScanBase("48 8b 05 ?? ?? ?? ?? 0f 5b c9"));
 		g_dataHandler = reinterpret_cast<DataHandler**>(SayuLib::Memory::aobScanBase("48 8b 05 ?? ?? ?? ?? 8b 13"));
-		lookupFormByID = reinterpret_cast<_lookupFormByID>(SayuLib::Memory::aobScanModule("48 89 74 24 58 8b f9 48 8d 35", -0x14));
-		hasPerk = reinterpret_cast<_hasPerk>(SayuLib::Memory::aobScanBase("e8 ?? ?? ?? ?? 84 c0 74 05 41 ff ?? eb 03", 1, 5));
+		lookupFormByID = reinterpret_cast<_lookupFormByID>(SayuLib::Memory::aobScanBase("74 22 e8 ? ? ? ? 48 8b f8")); // coincidence that the offset happens to be 3,7 here because this is two lines of asm
+		hasPerk = reinterpret_cast<_hasPerk>(SayuLib::Memory::aobScanBase("e8 ?? ?? ?? ?? 84 c0 74 05 41 ff ?? eb 03", 0x1, 0x5));
 		
 		void* globals[] = {
 			g_thePlayer,
