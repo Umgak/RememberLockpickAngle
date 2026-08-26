@@ -21,6 +21,8 @@ jobs:
       - name: Build
         id: build
         uses: "./.github/actions/build"
+        with:
+          tag_name: ${{ github.ref_name }}
       
     outputs:
       build-artifact-name: ${{ steps.build.outputs.build_artifact_name }}
@@ -41,8 +43,8 @@ jobs:
       - name: Create zip
         run: |
           mkdir -p SKSE/Plugins
-          cp x64/${{env.BUILD_CONFIGURATION}}/${{env.PROJECT_NAME}}.dll SKSE/Plugins
-          cp ${{env.PROJECT_NAME}}.ini SKSE/Plugins
+          cp x64/${{ env.BUILD_CONFIGURATION }}/${{ env.PROJECT_NAME }}.dll SKSE/Plugins
+          cp ${{ env.PROJECT_NAME }}.ini SKSE/Plugins
           zip -r ${{ needs.build.outputs.build-artifact-name }}.zip SKSE
 
       - name: Publish release
