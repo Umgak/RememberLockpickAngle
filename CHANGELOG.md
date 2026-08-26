@@ -1,7 +1,8 @@
 # Changelog
 
-## Unreleased
+## [v5.0.2] - 2026-08-27
 * Refactored so that if global functions fail to populate, the mod will failsafe instead of throwing an error. No perk requirement functionality will be supported in this mode.
+* Fixed compatibility with Engine Fixes bFormCaching patch. Huge thanks to dxalbcf on Nexus for tracking down the culprit!
 
 ## [v5.0.1] - 2026-08-26
 * Fixed an issue which caused the mod to fail to initialize on Windows.
