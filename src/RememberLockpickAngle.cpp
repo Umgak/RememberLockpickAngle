@@ -35,7 +35,9 @@ namespace RememberLockpickAngle {
 			{
 				Xbyak::Label rememberPickAngle;
 				Xbyak::Label returnLabel;
-				call(_hasRequiredPerk);
+				mov(r14, reinterpret_cast<uintptr_t>(_hasRequiredPerk));	// it is with a heavy heart that I inform you that this only causes issues on Windows.
+				call(r14);	// on Linux you can litrally just call(_hasRequiredPerk) and it's fine.
+				xor_(r14, r14);	// and I didn't think that the Windows memory allocator was THAT radically different I guess.
 				test(al, al);
 				jnz(rememberPickAngle);
 				mov(ptr[rsi + 0xDC], r14d);		// original code at entrypoint
