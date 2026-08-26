@@ -15,8 +15,8 @@ Write-Host "Running pre-build step for SKSE64..."
 
 # inject RLA into SKSE project
 Write-Host "Injecting $project project into SKSE64..."
-$builddir = "./deps/skse64/build/"
-$vcproj = "./$project.vcxproj"
+$builddir = Join-Path (Get-Location) "./deps/skse64/build/"
+$vcproj = Join-Path (Get-Location) "./$project.vcxproj"
 $reldir = [System.IO.Path]::GetRelativePath($builddir, $vcproj)
 . $PSScriptRoot\mutateXml.ps1 -p $builddir/umbrella.slnx `
 	-xp "/Solution" `
