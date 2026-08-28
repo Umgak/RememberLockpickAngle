@@ -33,6 +33,8 @@ requiredPerk = 5998
 ## Build Dependencies
 * [Script Extender Common](https://github.com/ianpatt/common)
 * [SKSE64](https://github.com/ianpatt/skse64)
+* [Pattern16](https://github.com/Dasaav-dsv/Pattern16)
+* [inicpp](https://github.com/dujingning/inicpp)
 
 ## Build Instructions
 Requires MSBuild to be added to your PATH.
@@ -45,4 +47,6 @@ The .dll will be output in `x64/Release/RememberLockpickAngle.dll`
 
 
 ## License
-[MIT (c) Sayuri ('Umgak')](https://github.com/Umgak/RememberLockpickAngle/LICENSE)
+[MIT (c) Sayuri ('Umgak')](https://github.com/Umgak/RememberLockpickAngle/blob/main/LICENSE)
+[Pattern16 Copyright (c) 2023 Dasaav-dsv ](https://github.com/Dasaav-dsv/Pattern16/blob/master/LICENSE.txt)
+[inicpp Copyright (c) 2023 dujingning](https://github.com/dujingning/inicpp/blob/main/LICENSE)
