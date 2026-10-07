@@ -1,16 +1,20 @@
 # Changelog
 
+## [v5.0.3] = 2026-10-17
+- Fixed a bug in which lookupFormByID would fail in all cases, breaking perk requirements.
+- Fixed a bug which incorrectly encoded the version as 5.0 in SKSE's version data. The full version number will now be reported correctly to SKSE - the log file was not affected.
+
 ## [v5.0.2] - 2026-08-27
-* Refactored so that if global functions fail to populate, the mod will failsafe instead of throwing an error. No perk requirement functionality will be supported in this mode.
-* Fixed compatibility with Engine Fixes bFormCaching patch. Huge thanks to dxalbcf on Nexus for tracking down the culprit!
+- Refactored so that if global functions fail to populate, the mod will failsafe instead of throwing an error. No perk requirement functionality will be supported in this mode.
+- Fixed compatibility with Engine Fixes bFormCaching patch. Huge thanks to dxalbcf on Nexus for tracking down the culprit!
 
 ## [v5.0.1] - 2026-08-26
-* Fixed an issue which caused the mod to fail to initialize on Windows.
+- Fixed an issue which caused the mod to fail to initialize on Windows.
   - This was due to differences in the Windows and Linux memory mappers. Linux mapped the dll into call(rel32) distance, Windows doesn't. I don't use Windows so I couldn't have caught this.
-* Fixed an issue which caused a crash with an empty settings file on Windows.
+- Fixed an issue which caused a crash with an empty settings file on Windows.
   - The Linux version of std::stoul is non-compliant and does not throw std::invalid_argument exceptions on empty input. Once again, I don't use Windows so I couldn't test this.
 
 ## [v5.0] - 2026-08-25
-* Full rewrite.
-* No longer dependent on Address Library.
-* Compatible with EVERY version of Skyrim Special Edition supported by Skyrim Script Extender.
+- Full rewrite.
+- No longer dependent on Address Library.
+- Compatible with EVERY version of Skyrim Special Edition supported by Skyrim Script Extender.
