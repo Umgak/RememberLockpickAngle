@@ -8,7 +8,7 @@
 #define MAKE_STR_HELPER(a_str) #a_str
 #define MAKE_STR(a_str) MAKE_STR_HELPER(a_str)
 #define MAKE_DLL_VER_EX(major, minor, patch, hotfix) ((((major) & 0xFF) << 24) | (((minor) & 0xFF) << 16) | (((patch) & 0xFF) << 8) | ((hotfix) & 0xFF))
-#define MAKE_DLL_VER(major, minor, patch)				  MAKE_DLL_VER_EX(major, minor, patch, hotfix)
+#define MAKE_DLL_VER(major, minor, patch, hotfix)				  MAKE_DLL_VER_EX(major, minor, patch, hotfix)
 
 #define RLA_VERSION_MAJOR	5
 #define RLA_VERSION_MINOR	0
