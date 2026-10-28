@@ -1,6 +1,12 @@
 # Changelog
 
-## [v5.0.3] = 2026-10-17
+## [v5.0.4] - 2026-10-28
+- Reduced codegen buffer allocation size.
+- Reduced trampoline buffer allocation size.
+  - Users have finally discovered the 64kb SKSE hook trampoline limit due to the number of AI generated SKSE plugins.
+    - I don't remember why it was 1kb before. It's a single jmp instruction.
+
+## [v5.0.3] - 2026-10-17
 - Fixed a bug in which lookupFormByID would fail in all cases, breaking perk requirements.
 - Fixed a bug which incorrectly encoded the version as 5.0 in SKSE's version data. The full version number will now be reported correctly to SKSE - the log file was not affected.
 

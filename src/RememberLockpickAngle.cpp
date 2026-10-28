@@ -36,7 +36,7 @@ namespace RememberLockpickAngle {
 				Xbyak::Label rememberPickAngle;
 				Xbyak::Label returnLabel;
 				mov(r14, reinterpret_cast<uintptr_t>(_hasRequiredPerk));	// it is with a heavy heart that I inform you that this only causes issues on Windows.
-				call(r14);	// on Linux you can litrally just call(_hasRequiredPerk) and it's fine.
+				call(r14);	// on Linux you can literally just call(_hasRequiredPerk) and it's fine.
 				xor_(r14, r14);	// and I didn't think that the Windows memory allocator was THAT radically different I guess.
 				test(al, al);
 				jnz(rememberPickAngle);
@@ -47,11 +47,11 @@ namespace RememberLockpickAngle {
 				dq(entrypoint + 0x7);
 			}
 		};
-		if (!g_branchTrampoline.Create(1024)) {
+		if (!g_branchTrampoline.Create(14)) {
 			_FATALERROR("[FATAL ERROR] Failed to create branch trampoline.");
 			return false;
 		}
-		if (!g_localTrampoline.Create(1024)) {
+		if (!g_localTrampoline.Create(40)) {
 			_FATALERROR("[FATAL ERROR] Failed to create codegen buffer.");
 			return false;
 		}
