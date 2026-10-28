@@ -51,7 +51,7 @@ namespace RememberLockpickAngle {
 			_FATALERROR("[FATAL ERROR] Failed to create branch trampoline.");
 			return false;
 		}
-		if (!g_localTrampoline.Create(40)) {
+		if (!g_localTrampoline.Create(64)) {
 			_FATALERROR("[FATAL ERROR] Failed to create codegen buffer.");
 			return false;
 		}
